@@ -10,6 +10,8 @@
 package lab01;
 
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Numbers {
@@ -49,7 +51,7 @@ public class Numbers {
 	public void addValue(Scanner keyboard) {
 		// TODO Write code here to add the values in the array
 
-		Float newFloat;
+		float newFloat;
 
 		// Get value from the user
 		if (numItems < numbers.length) {
@@ -72,8 +74,8 @@ public class Numbers {
 	public float calcAverage() {
 		// TODO Write code to return the average of the values in the array
 		
-		Float total = (float) 0.0;
-		Float result = (float) 0.00;
+		float total = (float) 0.0;
+		float result = (float) 0.00;
 		
 		// Only calculate average if array is non-empty
 		if (numItems > 0) {
@@ -85,7 +87,47 @@ public class Numbers {
 		
 		return result;
 	}
-
+	
+	/**
+	 * Calculates the minimum and maximum of the array and
+	 * the result of the maximum modulo the minimum.
+	 * 
+	 * @return float array containing min, max, max mod min
+	 */
+	public float [] findMinMax() {
+		float [] result = new float[3]; // {min, max, max % min}
+		
+		// Only do calculations if array is non-empty
+		if (numItems == 1) {
+			result[0] = numbers[0];
+			result[1] = numbers[0];
+		}
+		else if (numItems > 1) {
+			// Min
+			float min = numbers[0];
+			for (int i = 1; i < numItems; i++) {
+				if (numbers[i] < min) {
+					min = numbers[i];
+				}
+			result[0] = min;
+			}
+			
+			// Max
+			float max = numbers[0];
+			for (int i = 1; i < numItems; i++) {
+				if (numbers[i] > max) {
+					max = numbers[i];
+				}
+			}		
+			result[1] = max;
+			
+			// Max mod min
+			//(float) (Math.round(total / numItems * 100.0) / 100.0);
+			result[2] = (float) (Math.round(result[1] % result[0] * 100.0) / 100.0);
+		}
+		
+		return result;
+	}
 	@Override
 	public String toString() {
 		// TODO Write code for an appropriate toString method

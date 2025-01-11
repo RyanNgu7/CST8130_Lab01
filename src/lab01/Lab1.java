@@ -63,7 +63,23 @@ public class Lab1 {
 					
 				// 5: Display average, min, max, max mod min, factorialMax
 				case 5:
-					System.out.println("Average: " + numbers.calcAverage());
+					float [] minMaxResult = numbers.findMinMax();
+					
+					System.out.print("Average is: " + numbers.calcAverage() + ", " +
+										"Minimum value is: " + minMaxResult[0] + ", " +
+										"Maximum value is: " + minMaxResult[1] + ", " +
+										"max mod min is: ");
+					
+					// If min is 0, max mod min is displayed as ___
+					if (minMaxResult[0] == 0.0) {
+						System.out.print("____");
+					} else {
+						System.out.print(minMaxResult[2]);
+					}
+					
+					System.out.println();
+
+					
 					break;
 				
 				// 6: To Exit
