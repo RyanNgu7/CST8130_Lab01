@@ -52,15 +52,18 @@ public class Lab1 {
 					break;
 	
 				// 3: Add value to the array
-				case 3:
-					Float newFloat;
-					
-					System.out.printf("Enter value: ");
+				case 3:					
 					numbers.addValue(scanner);
 					break;
+					
 				// 4: Display values in the array
 				case 4:
 					System.out.println("Numbers are:\n" + numbers.toString());
+					break;
+					
+				// 5: Display average, min, max, max mod min, factorialMax
+				case 5:
+					System.out.println("Average: " + numbers.calcAverage());
 					break;
 				
 				// 6: To Exit

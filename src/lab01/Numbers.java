@@ -53,11 +53,12 @@ public class Numbers {
 
 		// Get value from the user
 		if (numItems < numbers.length) {
+			System.out.printf("Enter value: ");
 			newFloat = keyboard.nextFloat();
 			numbers[numItems] = newFloat; // Add the new value to the array
 			numItems++;
 		} else {
-			// If array is already full, print error message
+			// If array is already full, alert the user
 			System.out.println("Array full");
 		}
 
@@ -70,7 +71,19 @@ public class Numbers {
 	 */
 	public float calcAverage() {
 		// TODO Write code to return the average of the values in the array
-		return (float) 0.0;
+		
+		Float total = (float) 0.0;
+		Float result = (float) 0.00;
+		
+		// Only calculate average if array is non-empty
+		if (numItems > 0) {
+			for (int i = 0; i < numItems; i++) {
+				total += numbers[i];
+			}
+			result = (float) (Math.round(total / numItems * 100.0) / 100.0);
+		}
+		
+		return result;
 	}
 
 	@Override
